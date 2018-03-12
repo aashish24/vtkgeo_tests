@@ -149,6 +149,11 @@ def preparePointCloudExample(filename):
     vtkdata.GetPointData().SetScalars(colors)
     return vtkdata
 
+def runRasterExample(filename):
+    vtkdata = prepareRasterExample(filename)
+    renderImageData(init(), vtkdata)
+    run()
+
 def runVectorExample(filename):
     vtkdata = prepareVectorExample(filename)
     renderMultiblockData(init(), vtkdata)
@@ -167,7 +172,7 @@ def runPointCloudPlusRasterExample(p_filename, r_filename):
     renderImageData(ren, vtkidata)
     run()
 
-# runRasterExample("./data/o_14DEC14WV031100014DEC14160402-P1BS-500648062060_01_P001_________AAE_0AAAAABPABS0_utm.tif")
+runRasterExample("./data/o_14DEC14WV031100014DEC14160402-pans-utm.tif")
 # runVectorExample("./data/jacksonville/jacksonville_3d_bldgs_1.shp")
 # runPointCloudExample("./data/tp_manual_20171031104346_flt.bpf")
 # runPointCloudPlusRasterExample("./data/tp_manual_20171031104346_flt.bpf",
