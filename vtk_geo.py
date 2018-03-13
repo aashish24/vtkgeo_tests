@@ -17,6 +17,7 @@ def init():
 
     ren = vtk.vtkRenderer()
     renWin = vtk.vtkRenderWindow()
+    renWin.SetSize(1920, 1080)
     renWin.AddRenderer(ren)
 
     iren = vtk.vtkRenderWindowInteractor()
@@ -168,6 +169,15 @@ def runRasterExample(filename):
 
 def runVectorExample(filename):
     vtkdata = prepareVectorExample(filename)
+    comp_filter = vtk.vtkCompositeDataGeometryFilter()
+    comp_filter.SetInputData(vtkdata)
+    comp_filter.Update()
+    renderPolyData(init(), comp_filter.GetOutput())
+    # renderMultiblockData(init(), vtkdata)
+    run()
+
+def runVectorCompositeExample(filename):
+    vtkdata = prepareVectorExample(filename)
     renderMultiblockData(init(), vtkdata)
     run()
 
@@ -223,17 +233,27 @@ def runGeoJSONCropExample(input_filename, bbox_filename):
 
     run()
 
+# Example 1
 # runRasterExample("./data/o_14DEC14WV031100014DEC14160402-pans-utm.tif")
+
+# Example 2
 # runVectorExample("./data/jacksonville/jacksonville_3d_bldgs_1.shp")
+
+# Example 3
+# runVectorCompositeExample("./data/jacksonville/jacksonville_3d_bldgs_1.shp")
+
+# Example 4
 # runPointCloudExample("./data/tp_manual_20171031104346_flt.bpf")
+
+# Example 5
 # runPointCloudPlusRasterExample("./data/tp_manual_20171031104346_flt.bpf",
 #                                "./data/o_14DEC14WV031100014DEC14160402-P1BS-500648062060_01_P001_________AAE_0AAAAABPABS0_utm.tif")
 
-
+# Example 6
 # runGeoJSONCropExample("./data/baghdad_districts.geojson", "./data/baghdad_bbox.geojson")
 
-# # Building extraction example - Scott/Dan/Aashish
-runExtrusionExample('./data/AOI-D1-CLS.tif',
-                    './data/AOI-D1-DSM.tif',
-                    './data/AOI-D1-DTM.tif',
-                    './AOI-D1-out.vtp')
+# Example 7
+# runExtrusionExample('./data/AOI-D1-CLS.tif',
+#                     './data/AOI-D1-DSM.tif',
+#                     './data/AOI-D1-DTM.tif',
+#                     './AOI-D1-out.vtp')
