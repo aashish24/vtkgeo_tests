@@ -267,10 +267,12 @@ if __name__ == '__main__':
         runGeoJSONCropExample("./data/baghdad_districts.geojson", "./data/baghdad_bbox.geojson")
     elif args.example == 7:
         # Example 7
-        runExtrusionExample('./data/extrusion/AOI-D1-CLS.tif',
-                            './data/extrusion/AOI-D1-DSM.tif',
-                            './data/extrusion/AOI-D1-DTM.tif',
+        runExtrusionExample('./data/AOI-D1-CLS.tif',
+                            './data/AOI-D1-DSM.tif',
+                            './data/AOI-D1-DTM.tif',
                             './AOI-D1-out.vtp')
-    else:
+    elif args.example == 8:
         # Example 8
         renderSegY("./data/waha8.sgy")
+    else:
+        None
