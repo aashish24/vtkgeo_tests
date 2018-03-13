@@ -172,16 +172,16 @@ def runRasterExample(filename):
 
 def runVectorExample(filename):
     vtkdata = prepareVectorExample(filename)
+    renderMultiblockData(init(), vtkdata)
+    run()
+
+def runVectorCompositeExample(filename):
+    vtkdata = prepareVectorExample(filename)
     comp_filter = vtk.vtkCompositeDataGeometryFilter()
     comp_filter.SetInputData(vtkdata)
     comp_filter.Update()
     renderPolyData(init(), comp_filter.GetOutput())
     # renderMultiblockData(init(), vtkdata)
-    run()
-
-def runVectorCompositeExample(filename):
-    vtkdata = prepareVectorExample(filename)
-    renderMultiblockData(init(), vtkdata)
     run()
 
 def runPointCloudExample(filename):
@@ -248,7 +248,7 @@ if __name__ == '__main__':
 
     if args.example == 1:
         # Example 1
-        runRasterExample("./data/o_14DEC14WV031100014DEC14160402-pans-utm.tif")
+        runRasterExample("./data/pan_chromatic_utm.tif")
     elif args.example == 2:
         # Example 2
         runVectorExample("./data/jacksonville/jacksonville_3d_bldgs_1.shp")
@@ -261,7 +261,7 @@ if __name__ == '__main__':
     elif args.example == 5:
         # Example 5
         runPointCloudPlusRasterExample("./data/tp_manual_20171031104346_flt.bpf",
-                                       "./data/o_14DEC14WV031100014DEC14160402-P1BS-500648062060_01_P001_________AAE_0AAAAABPABS0_utm.tif")
+                                       "./data/pan_chromatic_utm.tif")
     elif args.example == 6:
         # Example 6
         runGeoJSONCropExample("./data/baghdad_districts.geojson", "./data/baghdad_bbox.geojson")
