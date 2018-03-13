@@ -4,8 +4,10 @@
 VTK Geospatial Examples
 """
 
+import argparse, sys
 import vtk
 from extrude_buildings import runExtrusionExample
+from vtk_segy import renderSegY
 
 # Globals
 iren = None
@@ -234,27 +236,41 @@ def runGeoJSONCropExample(input_filename, bbox_filename):
 
     run()
 
-# Example 1
-# runRasterExample("./data/o_14DEC14WV031100014DEC14160402-pans-utm.tif")
 
-# Example 2
-# runVectorExample("./data/jacksonville/jacksonville_3d_bldgs_1.shp")
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Run VTK Geospatial Examples')
+    parser.add_argument("-e", "--example", type=int, default=0, help="Enter an example number (1 - 8)")
+    args = parser.parse_args()
 
-# Example 3
-# runVectorCompositeExample("./data/jacksonville/jacksonville_3d_bldgs_1.shp")
+    if args.example == 0:
+        print('Provide an example to run via the --example (-e) argument')
+        sys.exit(1)
 
-# Example 4
-# runPointCloudExample("./data/tp_manual_20171031104346_flt.bpf")
-
-# Example 5
-# runPointCloudPlusRasterExample("./data/tp_manual_20171031104346_flt.bpf",
-#                                "./data/o_14DEC14WV031100014DEC14160402-P1BS-500648062060_01_P001_________AAE_0AAAAABPABS0_utm.tif")
-
-# Example 6
-# runGeoJSONCropExample("./data/baghdad_districts.geojson", "./data/baghdad_bbox.geojson")
-
-# Example 7
-# runExtrusionExample('./data/AOI-D1-CLS.tif',
-#                     './data/AOI-D1-DSM.tif',
-#                     './data/AOI-D1-DTM.tif',
-#                     './AOI-D1-out.vtp')
+    if args.example == 1:
+        # Example 1
+        runRasterExample("./data/o_14DEC14WV031100014DEC14160402-pans-utm.tif")
+    elif args.example == 2:
+        # Example 2
+        runVectorExample("./data/jacksonville/jacksonville_3d_bldgs_1.shp")
+    elif args.example == 3:
+        # Example 3
+        runVectorCompositeExample("./data/jacksonville/jacksonville_3d_bldgs_1.shp")
+    elif args.example == 4:
+        # Example 4
+        runPointCloudExample("./data/tp_manual_20171031104346_flt.bpf")
+    elif args.example == 5:
+        # Example 5
+        runPointCloudPlusRasterExample("./data/tp_manual_20171031104346_flt.bpf",
+                                       "./data/o_14DEC14WV031100014DEC14160402-P1BS-500648062060_01_P001_________AAE_0AAAAABPABS0_utm.tif")
+    elif args.example == 6:
+        # Example 6
+        runGeoJSONCropExample("./data/baghdad_districts.geojson", "./data/baghdad_bbox.geojson")
+    elif args.example == 7:
+        # Example 7
+        runExtrusionExample('./data/extrusion/AOI-D1-CLS.tif',
+                            './data/extrusion/AOI-D1-DSM.tif',
+                            './data/extrusion/AOI-D1-DTM.tif',
+                            './AOI-D1-out.vtp')
+    else:
+        # Example 8
+        renderSegY("./data/waha8.sgy")
