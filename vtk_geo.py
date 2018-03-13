@@ -124,15 +124,6 @@ def preparePointCloudExample(filename):
     reader = vtk.vtkPDALReader()
     reader.SetFileName(filename)
 
-    # trans_filter = vtk.vtkTransformFilter()
-    # geo_trans = vtk.vtkGeoTransform()
-    # src_proj = vtk.vtkGeoProjection()
-    # src_proj.SetName("merc")
-    # dest_proj = vtk.vtkGeoProjection()
-    # dest_proj.SetName("eqc")
-    # geo_trans.SetSourceProjection(src_proj)
-    # geo_trans.SetDestinationProjection(dest_proj)
-
     reader.Update()
     vtkdata = reader.GetOutput()
 
