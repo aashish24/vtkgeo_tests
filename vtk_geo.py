@@ -40,6 +40,7 @@ def renderPolyData(ren, vtk_data):
 
     actor = vtk.vtkActor()
     actor.SetMapper(mapper)
+    actor.GetProperty().SetPointSize(2.0)
     ren.AddActor(actor)
 
     return actor
