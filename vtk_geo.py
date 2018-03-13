@@ -1,15 +1,7 @@
 #!/bin/env python
 
 """
-Load DSM
-
-Transform panchromatic image
-
-Load DSM and Panchromatic image together
-
-Load Vector
-
-Load Point Cloud
+VTK Geospatial Examples
 """
 
 import vtk
