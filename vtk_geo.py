@@ -235,7 +235,7 @@ def runGeoJSONCropExample(input_filename, bbox_filename):
     run()
 
 # Example 1
-runRasterExample("./data/pan_chromatic_utm.tif-pans-utm.tif")
+runRasterExample("./data/pan_chromatic_utm.tif")
 
 # Example 2
 # runVectorExample("./data/jacksonville/jacksonville_3d_bldgs_1.shp")
