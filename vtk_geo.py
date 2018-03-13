@@ -230,10 +230,10 @@ def runGeoJSONCropExample(input_filename, bbox_filename):
 #                                "./data/o_14DEC14WV031100014DEC14160402-P1BS-500648062060_01_P001_________AAE_0AAAAABPABS0_utm.tif")
 
 
-runGeoJSONCropExample("./data/baghdad_districts.geojson", "./data/baghdad_bbox.geojson")
+# runGeoJSONCropExample("./data/baghdad_districts.geojson", "./data/baghdad_bbox.geojson")
 
 # # Building extraction example - Scott/Dan/Aashish
-# runExtrusionExample('./data/extrusion/AOI-D1-CLS.tif',
-#                     './data/extrusion/AOI-D1-DSM.tif',
-#                     './data/extrusion/AOI-D1-DTM.tif',
-#                     './AOI-D1-out.vtp')
+runExtrusionExample('./data/AOI-D1-CLS.tif',
+                    './data/AOI-D1-DSM.tif',
+                    './data/AOI-D1-DTM.tif',
+                    './AOI-D1-out.vtp')
