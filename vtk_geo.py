@@ -235,7 +235,7 @@ def runGeoJSONCropExample(input_filename, bbox_filename):
     run()
 
 # Example 1
-# runRasterExample("./data/o_14DEC14WV031100014DEC14160402-pans-utm.tif")
+runRasterExample("./data/pan_chromatic_utm.tif-pans-utm.tif")
 
 # Example 2
 # runVectorExample("./data/jacksonville/jacksonville_3d_bldgs_1.shp")
@@ -248,7 +248,7 @@ def runGeoJSONCropExample(input_filename, bbox_filename):
 
 # Example 5
 # runPointCloudPlusRasterExample("./data/tp_manual_20171031104346_flt.bpf",
-#                                "./data/o_14DEC14WV031100014DEC14160402-P1BS-500648062060_01_P001_________AAE_0AAAAABPABS0_utm.tif")
+#                                "./data/pan_chromatic_utm.tif")
 
 # Example 6
 # runGeoJSONCropExample("./data/baghdad_districts.geojson", "./data/baghdad_bbox.geojson")
